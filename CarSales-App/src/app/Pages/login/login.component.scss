@@ -1,0 +1,44 @@
+.cont {
+    margin: 5%;
+    overflow: hidden;
+}
+.col-4 {
+    background-color: black;
+    margin: 10% auto;
+    position: relative;
+    color: ghostwhite;
+}
+img {
+    height: 60%;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 20%;
+    margin-top: 10%;
+    border-radius: 5px;
+}
+input {
+    width: 80%;
+    height: 25%;
+    border-radius: 5px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+label{
+    margin-left: 10%;
+    margin-top: 5%;
+    font-size: larger;
+}
+
+p {
+    text-align: right;
+    margin: 5% 10%;
+}
+button {
+    border-radius: 20px;
+    background-color: ghostwhite;
+    color: goldenrod;
+    width: 20%;
+    height: 18%;
+    position: absolute;
+}
