@@ -19,10 +19,11 @@ img {
 }
 input {
     width: 80%;
-    height: 25%;
+    height: 2rem;
     border-radius: 5px;
     margin-left: 10%;
     margin-right: 10%;
+    padding-left: 1%;
 }
 label{
     margin-left: 10%;
@@ -32,13 +33,20 @@ label{
 
 p {
     text-align: right;
-    margin: 5% 10%;
+    margin: 3% 5%;
 }
 button {
     border-radius: 20px;
     background-color: ghostwhite;
     color: goldenrod;
-    width: 20%;
-    height: 18%;
-    position: absolute;
+    width: 5rem;
+    height: 2.5rem;
+    display:flex;
+    margin-top: 8%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+    justify-content: center;
+    align-items: center;
+    
 }
