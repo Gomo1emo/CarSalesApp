@@ -8,11 +8,11 @@ import { ShowcaseComponent } from './Pages/showcase/showcase.component';
 import { SignUpComponent } from './Pages/sign-up/sign-up.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent},
+  { path: 'login', title: 'Login page', component: LoginComponent},
   { path: 'sign-up', component: SignUpComponent},
   { path: 'nav-bar', component: NavBarComponent},
   { path: 'side-bar', component: SideBarComponent},
-  { path : '', component: HomeComponent},
+  { path : '', title: 'Home', component: HomeComponent},
   { path: 'models', component: ShowcaseComponent}
   
 

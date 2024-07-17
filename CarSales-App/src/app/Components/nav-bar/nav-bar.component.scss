@@ -1,16 +1,14 @@
-.cont {
-    display: flex;
-    height: 10%;
-    width: 100%;
-    background-color: black;
-    position: relative;
-    
-}
-.login{
+    .login {
     right: 0;
     position: absolute;
 }
-button {
-    color: ghostwhite;
-    background-color: black;
+
+.logo {
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //margin-left: 10%;
+    //position: absolute;
 }
+
