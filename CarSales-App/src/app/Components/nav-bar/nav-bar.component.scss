@@ -4,11 +4,28 @@
 }
 
 .logo {
-    width: 6rem;
+    max-width: 150px;
+    height: 60px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
     //margin-left: 10%;
-    //position: absolute;
+    position: absolute;
+    place-content: center;
+    left: 45%;
+    top: 0;
 }
-
+.navbar {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+.navbar-toggler {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
