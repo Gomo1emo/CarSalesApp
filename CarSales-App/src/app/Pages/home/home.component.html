@@ -12,9 +12,22 @@
         
         <div *ngFor="let item of Cars" class="card">
             <img src="{{item.image}}">
-            <h2> {{item.year}} {{item.model}} </h2>
+            <h3> {{item.year}} {{item.make}} {{item.model}} </h3>
+            <p>{{item.desc}}</p>
+            <div class="price">
+                <p>Price:</p>
+                <p>R{{item.price}} </p>
+            </div>
+            <hr>
+            <div class="symbols">
+                <p class="symbol">&#x26FD;</p>
+            <p class="symbol"><img class="dash" src="./assets/dashboard.png" alt=""></p>
+            </div>
             
         </div>
+    </div>
+    <div class="foot">
+        <app-footer></app-footer>
     </div>
 
 </div>

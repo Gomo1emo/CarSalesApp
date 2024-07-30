@@ -10,6 +10,7 @@ import { HomeComponent } from './Pages/home/home.component';
 import { ShowcaseComponent } from './Pages/showcase/showcase.component';
 import { SignUpComponent } from './Pages/sign-up/sign-up.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './Components/footer/footer.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     HomeComponent,
     ShowcaseComponent,
-    SignUpComponent
+    SignUpComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

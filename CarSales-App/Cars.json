@@ -6,7 +6,7 @@
             "model": "Mustang",
             "year": 2020,
             "color": "Blue",
-            "price": 30000,
+            "price": 1350000,
             "desc": "What Is the 2020 Ford Mustang? The Ford Mustang is a rear-wheel-drive, four-seat sports car that goes head-to-head with the Chevrolet Camaro and Dodge Challenger. It's available in coupe and convertible body styles and five main trims: EcoBoost, EcoBoost Premium, GT, GT Premium and the throwback Bullitt.",
             "image": "https://res.cloudinary.com/dmdnmg8zs/image/upload/v1722289678/2024-ford-mustang-dark-horse_kijgwj.webp"
         },
@@ -16,7 +16,7 @@
             "model": "Baracuda",
             "year": 1970,
             "color": "Red",
-            "price": 30000,
+            "price": 690000,
             "desc": "The Hemi Cuda had the 425HP Hemi V-8 engine. It could be backed by either a 3-speed automatic or a 4-speed manual transmission. Automatics received the 8.75″ rear axle standard, while 4-speed cars came with the Dana 60. All Hemi 'Cudas had the Shaker hood setup",
             "image": "https://res.cloudinary.com/dmdnmg8zs/image/upload/v1722289773/1970-plymouth-cuda-flaunts-426-hemi-muscle-four-speed-manual-with-pistol-grip-shifter-182318_1_tqmtln.jpg"
         },
@@ -24,11 +24,31 @@
             "id": 3,
             "make": "Chevrolet",
             "model": "Camaro",
-            "year": 2022,
+            "year": 1969,
             "color": "Blue",
-            "price": 30000,
+            "price": 560000,
             "desc": "1969 Chevrolet Camaro Z28s again came only with a Hurst-shifted close-ratio four-speed; 3.73:1 gears were standard, with up to 4.10:1 gears available. Positraction was an option. Styling could be enhanced by the Rally Sport package, which gained transparent louvers for its hidden-headlamp covers.",
             "image": "https://res.cloudinary.com/dmdnmg8zs/image/upload/v1722289932/1969-chevrolet-camaro_i4tavh.webp"
+        },
+        {
+            "id": 4,
+            "make": "Ford",
+            "model": "GT",
+            "year": 2018,
+            "color": "Yellow",
+            "price": 3400000,
+            "desc": "The domestic mid-engine supercar is rated 647 hp and 550 lb-ft of torque and has a top speed of 216 mph. The Ford GT is EPA-rated 11/18/14 mpg city/highway/combined. The Ford GT is based around a carbon-fiber tub with aluminum front and rear sub-frames covered by carbon fiber body panels.",
+            "image": "https://res.cloudinary.com/dmdnmg8zs/image/upload/v1722289863/ford-gt_0_qoem5q.webp"
+        },
+        {
+            "id": 4,
+            "make": "Ford",
+            "model": "GT",
+            "year": 2018,
+            "color": "Yellow",
+            "price": 30000,
+            "desc": "The domestic mid-engine supercar is rated 647 hp and 550 lb-ft of torque and has a top speed of 216 mph. The Ford GT is EPA-rated 11/18/14 mpg city/highway/combined. The Ford GT is based around a carbon-fiber tub with aluminum front and rear sub-frames covered by carbon fiber body panels.",
+            "image": "https://res.cloudinary.com/dmdnmg8zs/image/upload/v1722289863/ford-gt_0_qoem5q.webp"
         },
         {
             "id": 4,
