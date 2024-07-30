@@ -9,6 +9,7 @@ import { LoginComponent } from './Pages/login/login.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { ShowcaseComponent } from './Pages/showcase/showcase.component';
 import { SignUpComponent } from './Pages/sign-up/sign-up.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SignUpComponent } from './Pages/sign-up/sign-up.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

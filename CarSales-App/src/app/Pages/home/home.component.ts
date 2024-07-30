@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
   selector: 'app-home',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  constructor(private products: ProductsService) {}
+
+  Cars: any[] = []
+
+  ngOnInit(): void {
+    this.products.getProducts().subscribe((response) => {
+      this.Cars = response;
+      console.log(this.Cars)
+    })
+    
+  }
 }
