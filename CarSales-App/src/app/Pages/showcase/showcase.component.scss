@@ -1,3 +1,54 @@
 .cont {
-    background-color: aquamarine;
+    background-color: black;
 }
+
+.scroll-container {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+    padding: 20px;
+    height: 90%;
+    width: 80%;
+    margin-top: -1.5%;
+  }
+  
+  .scroll-container img {
+    padding: 10px;
+    height: 80vh;
+    width: 100%;
+  }
+
+   h1{
+    padding-left: 3%;
+    margin: 0;
+    color: ghostwhite;
+    font-weight: 900;
+    background-color: #333 ;
+    width: 100%;
+  }
+
+  .inline {
+    display: flex;
+    margin-top: 1.5%;
+  }
+  .info {
+    width: 20%;
+    border: 1px solid white;
+    background-color: ghostwhite;
+    margin-right: 2%;
+  }
+  .info h3 {
+    text-align: center;
+    background-color: bisque;
+  }
+
+  .price {
+    background-color: bisque;
+    text-align: center;
+  }
+  .price p{
+    background-color: #333;
+    color: ghostwhite;
+    text-align: center;
+    margin: 0;
+  }
