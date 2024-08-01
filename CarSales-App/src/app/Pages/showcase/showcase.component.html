@@ -2,14 +2,14 @@
 <app-side-bar></app-side-bar>
 
 <div class="cont">
-  <h1>{{car.year}} {{car.make}} {{car.model}}</h1>
+  <h1>{{car.year}} {{car.make}} {{car.model}} </h1>
   <div class="inline">
     <div class="info">
       <div class="price">
         <h3>Buy Car Online</h3>
         <div class="pr">
           <h6>Price:</h6>
-          <h5>R1340000</h5>
+          <h5>{{car.price}} </h5>
         </div>
         <p>Finance is available</p>
       </div>
@@ -93,7 +93,7 @@
         <div class="carousel-item active">
           <img
             class="d-block w-100"
-            src="https://res.cloudinary.com/dmdnmg8zs/image/upload/v1722289863/ford-gt_0_qoem5q.webp"
+            src="{{car.image}}"
             alt="side"
           />
         </div>
@@ -165,6 +165,6 @@
   </div>
   <div class="over-view">
     <h3>Vehicle Overview</h3>
-    <p>Etiam sit amet ex pharetra, venenatis ante vehicula, gravida sapien. Fusce eleifend vulputate nibh, non cursus augue placerat pellentesque. Sed venenatis risus nec felis mollis, in pharetra urna euismod. Morbi aliquam ut turpis sit amet ultrices. Vestibulum mattis blandit nisl, et tristique elit scelerisque nec. Fusce eleifend laoreet dui eget aliquet. Ut rutrum risus et nunc pretium scelerisque. Fusce viverra, ligula quis pellentesque interdum, leo felis congue dui, ac accumsan sem nulla id lorem. Praesent ut tristique dui, nec condimentum lacus. Maecenas lobortis ante id egestas placerat. Nullam at ultricies lacus. Nam in nulla consectetur, suscipit mauris eu, fringilla augue. Phasellus gravida, dui quis dignissim tempus, tortor orci tristique leo, ut congue diam ipsum at massa. Pellentesque ut vestibulum erat. Donec a felis eget</p>
+    <p>{{car.desc}}</p>
   </div>
 </div>

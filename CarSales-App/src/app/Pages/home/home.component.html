@@ -9,13 +9,13 @@
     </div>
     <h1>Available Cars</h1>
     <div  class="products">
-        <a *ngFor="let item of Cars" class="card" href="/models">
-            <div >
+        
+            <div *ngFor="let item of Cars" class="card" >
                 <img src="{{item.image}}">
                 <h3> {{item.year}} {{item.make}} {{item.model}} </h3>
-                <p>{{item.desc}}</p>
+                <p class="desc">{{item.desc}}</p>
                 <div class="inline">
-                    <a href="">More info...</a>
+                    <button [routerLink]="['/car-details', item.id]" >More info...</button>
                     <div class="price">
                         <p>Price:</p>
                         <p>R{{item.price}} </p>
@@ -23,13 +23,23 @@
                 </div>
                 
                 <hr>
-                <div class="symbols">
+                <div class="sym">
+                    <div class="symbols">
                     <p class="symbol">&#x26FD;</p>
+                    <p class="symbol"><img class="tran" src="./assets/Simple-transmission-shift-logo-car-icon-Graphics-31035479-2-312x208.png" alt=""></p>
                 <p class="symbol"><img class="dash" src="./assets/dashboard.png" alt=""></p>
+                
+                </div>
+                <div class="stats">
+                    <p>7l/100km</p>
+                    <p>Manual</p>
+                    <p>378 000km</p>
+                </div>
                 </div>
                 
+                
             </div>
-        </a>
+        
         
     </div>
     <div class="foot">
