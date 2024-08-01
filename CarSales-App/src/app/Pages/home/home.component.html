@@ -9,22 +9,28 @@
     </div>
     <h1>Available Cars</h1>
     <div  class="products">
+        <a *ngFor="let item of Cars" class="card" href="/models">
+            <div >
+                <img src="{{item.image}}">
+                <h3> {{item.year}} {{item.make}} {{item.model}} </h3>
+                <p>{{item.desc}}</p>
+                <div class="inline">
+                    <a href="">More info...</a>
+                    <div class="price">
+                        <p>Price:</p>
+                        <p>R{{item.price}} </p>
+                    </div>
+                </div>
+                
+                <hr>
+                <div class="symbols">
+                    <p class="symbol">&#x26FD;</p>
+                <p class="symbol"><img class="dash" src="./assets/dashboard.png" alt=""></p>
+                </div>
+                
+            </div>
+        </a>
         
-        <div *ngFor="let item of Cars" class="card">
-            <img src="{{item.image}}">
-            <h3> {{item.year}} {{item.make}} {{item.model}} </h3>
-            <p>{{item.desc}}</p>
-            <div class="price">
-                <p>Price:</p>
-                <p>R{{item.price}} </p>
-            </div>
-            <hr>
-            <div class="symbols">
-                <p class="symbol">&#x26FD;</p>
-            <p class="symbol"><img class="dash" src="./assets/dashboard.png" alt=""></p>
-            </div>
-            
-        </div>
     </div>
     <div class="foot">
         <app-footer></app-footer>

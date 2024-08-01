@@ -8,7 +8,7 @@
     text-align: center;
     color: white;
     position: absolute;
-    top: 7%;
+    top: 11%;
     margin-bottom: 0;
 }
 
@@ -46,7 +46,7 @@ h3 {
     //width: 100%;
     min-width: 350px;
     //max-width: 0%;
-    height: 420px;
+    height: 430px;
     background-color: whitesmoke;
     color: black;
     
@@ -86,7 +86,8 @@ h3 {
   .price {
     width: 6rem;
     height: 3rem;
-    background-color: goldenrod;
+    background-color: black;
+    color: white;
     //justify-content: center;
     //align-items: center;
     border-radius: 5%;
@@ -95,7 +96,9 @@ h3 {
     //margin-left: auto;
     //margin-right: auto;
     overflow: hidden;
-    margin-left: 75%;
+    margin-left: 45%;
+    margin-top: 2%;
+    
   }
 
   .price p {
@@ -104,7 +107,7 @@ h3 {
     //justify-items: center;
     justify-self: center;
     margin-top: 2%;
-    margin-bottom: -28%;
+    margin-bottom: -29%;
     font-weight: 600;
   }
   .symbols {
@@ -112,8 +115,19 @@ h3 {
     display: flex;
     margin-top: 0;
     justify-content: space-between;
+    padding: 1%;
   }
   .dash {
     width: 2.5rem;
     height: 2rem;
+  }
+  .inline {
+    display: flex;
+    width: 100%;
+  }
+
+  .inline a {
+    width: 25%;
+    margin-bottom: 0;
+    margin-top: 7%;
   }
