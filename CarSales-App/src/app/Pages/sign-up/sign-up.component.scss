@@ -1,5 +1,56 @@
-.col-4 {
-    background-color: aqua;
+.cont {
+    margin: -10% auto;
+    overflow: hidden;
+    border: 1px solid goldenrod;
+    background-color: #a9a9a9;
+    width: 30%;
+    height: 60%;
+    
+
+}
+.col-12 {
+    background-color: black;
     margin: 10% auto;
-    position: relative;
+    position: fixed;
+    color: ghostwhite;
+}
+img {
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+   
+    
+}
+input {
+    width: 80%;
+    height: 2rem;
+    border-radius: 5px;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-left: 1%;
+}
+label{
+    margin-left: 10%;
+    margin-top: 5%;
+    font-size: larger;
+}
+
+p {
+    text-align: right;
+    margin: 3% 5%;
+}
+button {
+    border-radius: 20px;
+    background-color: ghostwhite;
+    color: black;
+    width: 5rem;
+    height: 2.5rem;
+    display:flex;
+    margin-top: 8%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+    justify-content: center;
+    align-items: center;
+    
 }

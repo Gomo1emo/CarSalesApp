@@ -1,21 +1,25 @@
 .cont {
-    margin: 5%;
+    margin: -5% auto;
     overflow: hidden;
+    border: 1px solid goldenrod;
+    background-color: #a9a9a9;
+    width: 30%;
+    height: 60%;
+    
+
 }
-.col-4 {
+.col-12 {
     background-color: black;
     margin: 10% auto;
-    position: relative;
+    position: fixed;
     color: ghostwhite;
 }
 img {
-    height: 60%;
-    width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-bottom: 20%;
-    margin-top: 10%;
-    border-radius: 5px;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+   
+    
 }
 input {
     width: 80%;
@@ -38,7 +42,7 @@ p {
 button {
     border-radius: 20px;
     background-color: ghostwhite;
-    color: goldenrod;
+    color: black;
     width: 5rem;
     height: 2.5rem;
     display:flex;

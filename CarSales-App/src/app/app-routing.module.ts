@@ -10,7 +10,7 @@ import { PaymentPageComponent } from './Pages/payment-page/payment-page.componen
 import { AddProductComponent } from './Pages/add-product/add-product.component';
 
 const routes: Routes = [
-  { path: 'login', title: 'Sign in', component: LoginComponent},
+  { path: 'sign-in', title: 'Sign in', component: LoginComponent},
   { path: 'sign-up', title: 'Sign up', component: SignUpComponent},
   { path: 'nav-bar', component: NavBarComponent},
   { path: 'side-bar', component: SideBarComponent},
