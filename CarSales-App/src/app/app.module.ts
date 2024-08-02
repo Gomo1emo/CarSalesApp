@@ -12,6 +12,8 @@ import { SignUpComponent } from './Pages/sign-up/sign-up.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './Components/footer/footer.component';
 import { PaymentPageComponent } from './Pages/payment-page/payment-page.component';
+import { AddProductComponent } from './Pages/add-product/add-product.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,12 +26,14 @@ import { PaymentPageComponent } from './Pages/payment-page/payment-page.componen
     ShowcaseComponent,
     SignUpComponent,
     FooterComponent,
-    PaymentPageComponent
+    PaymentPageComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,9 +11,9 @@
     <div  class="products">
         
             <div *ngFor="let item of Cars" class="card" >
-                <img src="{{item.image}}">
+                <img src="{{item.image1}}">
                 <h3> {{item.year}} {{item.make}} {{item.model}} </h3>
-                <p class="desc">{{item.desc}}</p>
+                <p class="desc">{{item.description}}</p>
                 <div class="inline">
                     <button [routerLink]="['/car-details', item.id]" >More info...</button>
                     <div class="price">
@@ -31,9 +31,9 @@
                 
                 </div>
                 <div class="stats">
-                    <p>7l/100km</p>
-                    <p>Manual</p>
-                    <p>378 000km</p>
+                    <p>{{item.milage}}litres </p>
+                    <p>{{item.transmission}}</p>
+                    <p>{{item.milage}}</p>
                 </div>
                 </div>
                 
