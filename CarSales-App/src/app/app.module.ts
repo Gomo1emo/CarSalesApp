@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './Components/footer/footer.component';
 import { PaymentPageComponent } from './Pages/payment-page/payment-page.component';
 import { AddProductComponent } from './Pages/add-product/add-product.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -33,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

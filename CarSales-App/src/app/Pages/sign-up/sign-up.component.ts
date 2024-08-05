@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -25,11 +27,10 @@ export class SignUpComponent {
     // });
     this.regForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
-      lname: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.email, Validators.required]),
       password: new FormControl('', [Validators.required, Validators.minLength(8)]),
       confirmPassword: new FormControl('', [Validators.required, Validators.minLength(8)]),
-      agreeTerms: new FormControl('')
+      
     }),{
       validators: this.passwordMatchValidation
     }
@@ -52,29 +53,27 @@ export class SignUpComponent {
 
   submit() {
     this.submitted = true;
-    console.log("called")
-    // console.log(this.regForm.value)
+     console.log(this.regForm.value)
 
     if (this.regForm.valid) {
       const registrationData = {
         firstname: this.regForm.value.name,
-        lastname: this.regForm.value.lname,
+        //lastname: this.regForm.value.lname,
         email: this.regForm.value.email,
         password: this.regForm.value.password,
-        role: "HUNTER"
+        role: "USER"
       };
 
       this.authService.register(registrationData).subscribe(res => {
         if (res.token !== null) {
 
           setTimeout(() => {
-            window.location.href = '/login';
+            window.location.href = '/sign-in';
           }, 2000)
         } else {
           // Handle registration error
         }
       });
-      console.log('Data to be sent', registrationData);
     }
   }
 }

@@ -1,22 +1,22 @@
 <div class="col-12">
     <form class="form" [formGroup]="regForm" (ngSubmit)="submit()">
-        <div class="cont">
+        <div id="cont">
             <img src="https://res.cloudinary.com/dmdnmg8zs/image/upload/v1722344032/KG-Auto_h9kvlw.png" alt="logo">
             <div class="username">
                 <label for="sign-in">Email:</label> <br>
-                <input class="sign-in" type="text" placeholder="Email">
+                <input class="form-control" formControlName="email" type="text" placeholder="Email">
             </div>
             <div class="username">
-                <label for="sign-in">User:</label> <br>
-                <input class="form-controlsign-in" type="text" placeholder="Username">
+                <label for="sign-in">Name:</label> <br>
+                <input class="form-control" formControlName="name" type="text" placeholder="Username">
             </div>
             <div class="password">
                 <label for="password">Password:</label> <br>
-                <input class="form-control password" type="text" placeholder="Password">
+                <input class="form-control" formControlName="password" type="text" placeholder="Password">
             </div>
             <div class="password">
                 <label for="password">Confirm Password:</label> <br>
-                <input class="form-control password" type="text" placeholder="Confirm Password">
+                <input class="form-control" formControlName="confirmPassword" type="text" placeholder="Confirm Password">
             </div>
             <button type="submit" >Sign up</button>
             <p>Already have an account? <a href="/sign-in">Sign in</a></p>
