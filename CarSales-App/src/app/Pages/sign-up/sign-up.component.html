@@ -1,23 +1,26 @@
 <div class="col-12">
-    <div class="cont">
-        <img src="https://res.cloudinary.com/dmdnmg8zs/image/upload/v1722344032/KG-Auto_h9kvlw.png" alt="logo">
-        <div class="username">
-            <label for="sign-in">Email:</label> <br>
-            <input class="sign-in" type="text" placeholder="Email">
+    <form class="form" [formGroup]="regForm" (ngSubmit)="submit()">
+        <div class="cont">
+            <img src="https://res.cloudinary.com/dmdnmg8zs/image/upload/v1722344032/KG-Auto_h9kvlw.png" alt="logo">
+            <div class="username">
+                <label for="sign-in">Email:</label> <br>
+                <input class="sign-in" type="text" placeholder="Email">
+            </div>
+            <div class="username">
+                <label for="sign-in">User:</label> <br>
+                <input class="form-controlsign-in" type="text" placeholder="Username">
+            </div>
+            <div class="password">
+                <label for="password">Password:</label> <br>
+                <input class="form-control password" type="text" placeholder="Password">
+            </div>
+            <div class="password">
+                <label for="password">Confirm Password:</label> <br>
+                <input class="form-control password" type="text" placeholder="Confirm Password">
+            </div>
+            <button type="submit" >Sign up</button>
+            <p>Already have an account? <a href="/sign-in">Sign in</a></p>
         </div>
-        <div class="username">
-            <label for="sign-in">User:</label> <br>
-            <input class="sign-in" type="text" placeholder="Username">
-        </div>
-        <div class="password">
-            <label for="password">Password:</label> <br>
-            <input class="password" type="text" placeholder="Password">
-        </div>
-        <div class="password">
-            <label for="password">Confirm Password:</label> <br>
-            <input class="password" type="text" placeholder="Confirm Password">
-        </div>
-        <button routerLink="/sign-in" >Sign up</button>
-        <p>Already have an account? <a href="/sign-in">Sign in</a></p>
-    </div>
+    </form>
+    
 </div>
