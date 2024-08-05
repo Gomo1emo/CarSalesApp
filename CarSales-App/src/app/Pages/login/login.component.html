@@ -1,14 +1,14 @@
 <div class="col-12">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="cont">
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div id="cont">
             <img src="https://res.cloudinary.com/dmdnmg8zs/image/upload/v1722344032/KG-Auto_h9kvlw.png" alt="logo">
             <div class="username">
                 <label for="sign-in">User:</label> <br>
-                <input formControlName="email" class="form-control sign-in" type="text" placeholder="Username">
+                <input formControlName="email" class="form-control" type="text" placeholder="Email">
             </div>
             <div class="password">
                 <label for="password">Password:</label> <br>
-                <input formControlName="password" class="password" type="text" placeholder="Password">
+                <input formControlName="password" class="form-control" type="password" placeholder="Password">
             </div>
             <button type="submit">Sign In</button>
             <p>Forgot your Password? <a href="">Reset Password</a></p>
