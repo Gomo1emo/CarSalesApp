@@ -1,16 +1,19 @@
 <div class="col-12">
-    <div class="cont">
-        <img src="https://res.cloudinary.com/dmdnmg8zs/image/upload/v1722344032/KG-Auto_h9kvlw.png" alt="logo">
-        <div class="username">
-            <label for="sign-in">User:</label> <br>
-            <input class="sign-in" type="text" placeholder="Username">
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div id="cont">
+            <img src="https://res.cloudinary.com/dmdnmg8zs/image/upload/v1722344032/KG-Auto_h9kvlw.png" alt="logo">
+            <div class="username">
+                <label for="sign-in">User:</label> <br>
+                <input formControlName="email" class="form-control" type="text" placeholder="Email">
+            </div>
+            <div class="password">
+                <label for="password">Password:</label> <br>
+                <input formControlName="password" class="form-control" type="password" placeholder="Password">
+            </div>
+            <button type="submit">Sign In</button>
+            <p>Forgot your Password? <a href="">Reset Password</a></p>
+            <p>Don't have an account? <a href="/sign-up">Sign-up</a></p>
         </div>
-        <div class="password">
-            <label for="password">Password:</label> <br>
-            <input class="password" type="text" placeholder="Password">
-        </div>
-        <button routerLink="/">Sign In</button>
-        <p>Forgot your Password? <a href="">Reset Password</a></p>
-        <p>Don't have an account? <a href="/sign-up">Sign-up</a></p>
-    </div>
+    </form>
+    
 </div>
