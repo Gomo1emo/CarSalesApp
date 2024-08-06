@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,18 +16,10 @@ export class SignUpComponent {
   constructor(private fb: FormBuilder, private authService: AuthServiceService) {}
 
   ngOnInit(): void {
-    // this.regForm = this.fb.group({
-    //   name: ['', [Validators.required]],
-    //   lname: ['', [Validators.required]],
-    //   email: ['', [Validators.required, Validators.email]],
-    //   password: ['', [Validators.required, Validators.minLength(8)]],
-    //   confirmPassword: ['', [Validators.required]],
-    //   agreeTerms: [false, [Validators.requiredTrue]]
-    // }, {
-    //   validators: this.passwordMatchValidation
-    // });
+  
     this.regForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
+      lname: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.email, Validators.required]),
       password: new FormControl('', [Validators.required, Validators.minLength(8)]),
       confirmPassword: new FormControl('', [Validators.required, Validators.minLength(8)]),
@@ -58,7 +51,7 @@ export class SignUpComponent {
     if (this.regForm.valid) {
       const registrationData = {
         firstname: this.regForm.value.name,
-        //lastname: this.regForm.value.lname,
+        lastname: this.regForm.value.lname,
         email: this.regForm.value.email,
         password: this.regForm.value.password,
         role: "USER"
@@ -66,12 +59,28 @@ export class SignUpComponent {
 
       this.authService.register(registrationData).subscribe(res => {
         if (res.token !== null) {
+          Swal.fire({
+            title: "Signed up successfully!!!",
+            text: res.message,
+            icon: "success",
+            customClass: {
+              confirmButton: 'custom-ok-button'
+            }
+          });
 
           setTimeout(() => {
             window.location.href = '/sign-in';
           }, 2000)
         } else {
           // Handle registration error
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Password or email incorrect!",
+            customClass: {
+              confirmButton: 'custom-ok-button'
+            }
+          });
         }
       });
     }

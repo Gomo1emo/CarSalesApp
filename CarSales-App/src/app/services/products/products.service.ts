@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ProductsService {
 
-  private apiUrl = 'http://localhost:8080/api/Cars';
+  private apiUrl = 'http://localhost:8080/api/v1/Cars';
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };

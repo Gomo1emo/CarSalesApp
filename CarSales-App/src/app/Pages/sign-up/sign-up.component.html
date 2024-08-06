@@ -2,21 +2,26 @@
     <form class="form" [formGroup]="regForm" (ngSubmit)="submit()">
         <div id="cont">
             <img src="https://res.cloudinary.com/dmdnmg8zs/image/upload/v1722344032/KG-Auto_h9kvlw.png" alt="logo">
+            
             <div class="username">
-                <label for="sign-in">Email:</label> <br>
-                <input class="form-control" formControlName="email" type="text" placeholder="Email">
+                <label for="sign-in">First Name:</label> <br>
+                <input class="form-control" formControlName="name" type="text" placeholder="First Name" autocomplete="on">
             </div>
             <div class="username">
-                <label for="sign-in">Name:</label> <br>
-                <input class="form-control" formControlName="name" type="text" placeholder="Username">
+                <label for="sign-in">Last Name:</label> <br>
+                <input class="form-control" formControlName="lname" type="text" placeholder="Last Name" autocomplete="on">
+            </div>
+            <div class="username">
+                <label for="sign-in">Email:</label> <br>
+                <input class="form-control" formControlName="email" type="text" placeholder="Email" autocomplete="on">
             </div>
             <div class="password">
                 <label for="password">Password:</label> <br>
-                <input class="form-control" formControlName="password" type="text" placeholder="Password">
+                <input class="form-control" formControlName="password" type="password" placeholder="Password" autocomplete="on">
             </div>
             <div class="password">
                 <label for="password">Confirm Password:</label> <br>
-                <input class="form-control" formControlName="confirmPassword" type="text" placeholder="Confirm Password">
+                <input  class="form-control" formControlName="confirmPassword" type="password" placeholder="Confirm Password" autocomplete="on">
             </div>
             <button type="submit" >Sign up</button>
             <p>Already have an account? <a href="/sign-in">Sign in</a></p>

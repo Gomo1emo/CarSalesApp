@@ -2,22 +2,29 @@
     margin: -10% auto;
     overflow: hidden;
     border: 1px solid goldenrod;
-    background-color: #a9a9a9;
+    background-color: black;
     width: 30%;
     height: 60%;
+    
     
 
 }
 .col-12 {
     background-color: black;
     margin: 10% auto;
-    position: fixed;
+   
+    //position: fixed;
     color: ghostwhite;
+    background-size: cover;
+    background-image: url('https://res.cloudinary.com/dmdnmg8zs/image/upload/v1722905916/3b3c2b3e2472fa8e4b1c8921155ac66f_ei0lwa.jpg');
 }
 img {
     width: 70%;
+    margin-bottom: -5%;
+    margin-top: -5%;
     margin-left: 15%;
     margin-right: 15%;
+    border: 3px solod red;
    
     
 }

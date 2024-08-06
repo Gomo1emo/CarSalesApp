@@ -1,18 +1,20 @@
 #cont {
-    margin: -5% auto;
+    margin: auto;
     overflow: hidden;
     border: 1px solid goldenrod;
-    background-color: #a9a9a9;
+    background-color: black;
     width: 30%;
     height: 60%;
-    
-
 }
+
 .col-12 {
-    background-color: black;
-    margin: 10% auto;
-    position: fixed;
+    background-color: #a9a9a9;
+    padding: 5%;
+    margin: 0 auto;
+    //position: fixed;
     color: ghostwhite;
+    background-size: contain;
+    background-image: url('https://res.cloudinary.com/dmdnmg8zs/image/upload/v1722905916/3b3c2b3e2472fa8e4b1c8921155ac66f_ei0lwa.jpg');
 }
 img {
     width: 70%;
