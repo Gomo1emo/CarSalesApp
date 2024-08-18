@@ -20,9 +20,9 @@ export class ShowcaseComponent implements OnInit {  // Implement OnInit
     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
       const id = params.get('id');
       if (id !== null) {
-        const bountyId = parseInt(id);
-        this.carId = bountyId;
-        this.productService.getProduct(bountyId).subscribe((response) => {
+        const CarId = parseInt(id);
+        this.carId = CarId;
+        this.productService.getProduct(CarId).subscribe((response) => {
           this.car = response;
         });
       }

@@ -14,6 +14,7 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { PaymentPageComponent } from './Pages/payment-page/payment-page.component';
 import { AddProductComponent } from './Pages/add-product/add-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BackComponent } from './Components/back/back.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SignUpComponent,
     FooterComponent,
     PaymentPageComponent,
-    AddProductComponent
+    AddProductComponent,
+    BackComponent
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,15 @@
 <app-nav-bar></app-nav-bar>
-<app-side-bar></app-side-bar>
+
 
 <div class="cont">
   <h1>{{car.year}} {{car.make}} {{car.model}} </h1>
   <div class="inline">
     <div class="info">
-      <a href="/payment">
+      <a href="/payment/{{car.id}}">
         <div class="price">
-          <h3>Buy Car Online</h3>
+          <h3>Book a Test Drive</h3>
           <div class="pr">
-            <h6>Price:</h6>
+            <h6>Selling Price:</h6>
             <h5>{{car.price}} </h5>
           </div>
           <p>Finance is available</p>

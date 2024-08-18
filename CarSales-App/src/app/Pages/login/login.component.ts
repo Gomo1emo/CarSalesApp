@@ -36,7 +36,7 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe(res => {
-        if (res.status === "OK") {
+        if (res.token !== null) {
           Swal.fire({
             title: "Signed in successfully!!!",
             text: res.message,
@@ -51,7 +51,7 @@ export class LoginComponent {
           console.log("success");
 
           setTimeout(() => {
-            window.location.href = '/sign-up'
+            window.location.href = ''
           }, 2000)
         }
   }, error => {
