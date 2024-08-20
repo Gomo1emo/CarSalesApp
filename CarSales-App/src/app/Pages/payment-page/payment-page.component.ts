@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { BookingsServiceService } from 'src/app/services/bookings/bookings-service.service';
 import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
@@ -8,11 +10,12 @@ import { ProductsService } from 'src/app/services/products/products.service';
   styleUrls: ['./payment-page.component.scss']
 })
 export class PaymentPageComponent implements OnInit {
-  
+
   car: any;
   carId = 0;
+  bookingForm!: FormGroup;
 
-  constructor(private router: Router, private productService: ProductsService, private activatedRoute: ActivatedRoute ) { }  // Fixed service name
+  constructor(private router: Router, private productService: ProductsService, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private bookingService: BookingsServiceService) { }  // Fixed service name
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
@@ -25,6 +28,21 @@ export class PaymentPageComponent implements OnInit {
         });
       }
     });
+
+    this.bookingForm = this.formBuilder.group({
+      fullNames: ['', Validators.required],
+      date: ['', Validators.required],
+      time: ['', Validators.required],
+      phone: ['', Validators.required],
+      additionalDetails: [''],
+      email: ['', Validators.required, Validators.email],
+    })
+  }
+
+  submit() {
+
+    const formData = this.bookingForm.value;
+    this.bookingService.postBooking(formData).subscribe(res => { console.log("Booking successful!!!") })
   }
 
 }

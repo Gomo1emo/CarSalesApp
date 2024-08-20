@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductsService } from 'src/app/services/products/products.service';
 import Swal from 'sweetalert2';
@@ -29,37 +30,41 @@ export class AddProductComponent {
   fuel!: String;
   milage!: String;
  body!: String;
+  carForm: any;
+  fb: any;
 
  constructor(private productService: ProductsService, private router: Router) { }
 
  ngOnInit(): void {
   //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
   //Add 'implements OnInit' to the class.
+  this.carForm = this.fb.group({
+    make: ['', Validators.required],
+    model: ['', Validators.required],
+    year: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]],
+    color: ['', Validators.required],
+    vin: ['', [Validators.required, Validators.pattern('^[A-HJ-NPR-Z0-9]{17}$')]],
+    description: ['', Validators.required],
+    milage: ['', Validators.required],
+    body: ['', Validators.required],
+    transmission: ['', Validators.required],
+    fuel: ['', Validators.required],
+    drive: ['', Validators.required],
+    price: ['', [Validators.required, Validators.pattern('^[0-9]+(\.[0-9]{1,2})?$')]],
+    image1: ['', Validators.required],
+    image2: ['', Validators.required],
+    image3: ['', Validators.required],
+    image4: ['', Validators.required],
+    image5: ['', Validators.required],
+    image6: ['', Validators.required],
+  });
   
  }
 
   submitCar(): void {
-    const carData = {
-      // Define your bountyData object here
-      make: this.make,
-      model: this.model,
-      description: this.description,
-      price: this.price,
-      year: this.year,
-      image1: this.image1,
-      image2: this.image2,
-      image3: this.image3,
-      image4: this.image4,
-      image5: this.image5,
-      image6: this.image6,
-      body: this.body,
-      fuel: this.fuel,
-      vin: this.vin,
-      milage: this.milage,
-      drive: this.drive,
-      color: this.color,
-      transmission: this.transmission,
-    };
+
+
+    const carData = this.carForm.value;
 
     
     this.productService.postProduct(carData).subscribe(

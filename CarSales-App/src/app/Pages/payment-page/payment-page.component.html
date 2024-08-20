@@ -1,18 +1,18 @@
 <app-back></app-back>
 <div class="container mt-5 col-5">
     <h2 class="text-center mb-4">Book a Test Drive</h2>
-    <form>
+    <form [formGroup]="bookingForm" onclick="submit()">
         <div class="mb-3">
             <label for="fullName" class="form-label">Full Name</label>
-            <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+            <input type="text" class="form-control" formControlName="fullNames" id="fullName" placeholder="Enter your full name" required>
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email Address</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email address" required>
+            <input type="email" class="form-control" formControlName="email" id="email" placeholder="Enter your email address" required>
         </div>
         <div class="mb-3">
             <label for="phone" class="form-label">Phone Number</label>
-            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+            <input type="tel" class="form-control" formControlName="phone" id="phone" placeholder="Enter your phone number" required>
         </div>
         <div class="mb-3">
             <label for="carModel" class="form-label">Select Car Model</label>
@@ -20,15 +20,15 @@
         </div>
         <div class="mb-3">
             <label for="date" class="form-label">Preferred Date</label>
-            <input type="date" class="form-control" id="date" required>
+            <input type="date" class="form-control" formControlName="date" id="date" required>
         </div>
         <div class="mb-3">
             <label for="time" class="form-label">Preferred Time</label>
-            <input type="time" class="form-control" id="time" required>
+            <input type="time" class="form-control" formControlName="time" id="time" required>
         </div>
         <div class="mb-3">
             <label for="comments" class="form-label">Additional Comments</label>
-            <textarea class="form-control" id="comments" rows="3" placeholder="Any specific requests or comments"></textarea>
+            <textarea class="form-control" formControlName="additionalDetails" id="comments" rows="3" placeholder="Any specific requests or comments"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
