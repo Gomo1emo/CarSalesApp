@@ -17,4 +17,16 @@
 
 .panel-default {
     opacity: 90%;
+    scroll-behavior: smooth;
+    position: relative; /* Ensure the panel stays within the container */
+    max-height: 80vh; /* Set a maximum height for the panel */
+    overflow-y: auto; /* Enable vertical scrolling */
+    background-color: rgba(255, 255, 255, 0.9); /* Optional: to enhance readability */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+button {
+    border: none;
+    margin-top: 3%;
 }

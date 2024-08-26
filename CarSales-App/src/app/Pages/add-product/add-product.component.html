@@ -16,12 +16,12 @@
           <h3 class="panel-title" >Sell Your Car<small></small></h3>
         </div>
         <div class="panel-body">
-          <form role="form">
+          <form role="form" [formGroup]="carForm" (ngSubmit)="onSubmit()">
             <div class="row">
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                   <input
-                  [(ngModel)]="make"
+                  formControlName="make"
                     type="text"
                     name="make"
                     id="make"
@@ -35,7 +35,7 @@
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                   <input
-                    [(ngModel)]="model"
+                    formControlName="model"
                     type="text"
                     name="model"
                     id="model"
@@ -49,7 +49,7 @@
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                   <input
-                    [(ngModel)]="year"
+                    formControlName="year"
                     type="text"
                     name="year"
                     id="year"
@@ -63,7 +63,7 @@
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                   <input
-                    [(ngModel)]="color"
+                    formControlName="color"
                     type="text"
                     name="color"
                     id="color"
@@ -78,7 +78,7 @@
 
             <div class="form-group">
               <input
-                [(ngModel)]="vin"
+                formControlName="vin"
                 type="text"
                 name="vin"
                 id="vin"
@@ -90,7 +90,7 @@
             </div>
             <div class="form-group">
               <textarea
-                [(ngModel)]="description"
+                formControlName="description"
                 type="text"
                 name="description"
                 id="description"
@@ -105,7 +105,7 @@
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                   <input
-                    [(ngModel)]="milage"
+                    formControlName="milage"
                     type="milage"
                     name="milage"
                     id="password"
@@ -119,7 +119,7 @@
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                   <input
-                    [(ngModel)]="body"
+                    formControlName="body"
                     type="text"
                     name="body"
                     id="body"
@@ -133,7 +133,7 @@
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                   <input
-                    [(ngModel)]="transmission"
+                    formControlName="transmission"
                     type="text"
                     name="transmission"
                     id="transmission"
@@ -147,7 +147,7 @@
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                   <input
-                    [(ngModel)]="fuel"
+                    formControlName="fuel"
                     type="text"
                     name="fuel"
                     id="fuel"
@@ -161,7 +161,7 @@
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                   <input
-                    [(ngModel)]="drive"
+                    formControlName="drive"
                     type="text"
                     name="drive"
                     id="drive"
@@ -175,7 +175,7 @@
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                   <input
-                    [(ngModel)]="price"
+                    formControlName="price"
                     type="text"
                     name="price"
                     id="price"
@@ -186,94 +186,244 @@
                   />
                 </div>
               </div>
-              <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group">
-                  <input
-                    [(ngModel)]="image1"
-                    type="text"
-                    name="image1"
-                    id="image1"
-                    class="form-control input-sm"
-                    placeholder="Image1"
-                    autocomplete="on"
-                    required
-                  />
+              <div class="container mt-5">
+                <div class="row">
+                  <div class="card">
+                    <div class="card-header">
+                      <h2>Image:1</h2>
+                    </div>
+                    <div class="card-body">
+                      <div class="example-container">
+                        <form novalidate enctype="multipart/form-data">
+                          <div class="form-group">
+                            <label for="image" class="form-label">Select Image</label>
+                            <input type="file" id="image" class="form-control mb-3" (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
+                          </div>
+          
+                          <!-- Display the currently selected or existing profile picture -->
+                          <div class="form-group">
+                            <div *ngIf="imageUrl; else noImage">
+                              <div>
+                                <img class="img-thumbnail" [src]="imageUrl" style="max-width: 100px" alt="image1">
+                              </div>
+                            </div>
+                            <ng-template #noImage>
+                              <p>No image selected</p>
+                            </ng-template>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group">
-                  <input
-                    [(ngModel)]="image2"
-                    type="text"
-                    name="image2"
-                    id="image2"
-                    class="form-control input-sm"
-                    placeholder="Image2"
-                    autocomplete="on"
-                    required
-                  />
+          
+              
+              <ng-template #noImagesFound>
+                <div class="col-xs-12">
+                  <p>No images found.</p>
+                </div>
+              </ng-template>
+
+              <div class="container mt-5">
+                <div class="row">
+                  <div class="card">
+                    <div class="card-header">
+                      <h2>Image: 2</h2>
+                    </div>
+                    <div class="card-body">
+                      <div class="example-container">
+                        <form novalidate enctype="multipart/form-data">
+                          <div class="form-group">
+                            <label for="image" class="form-label">Select image</label>
+                            <input type="file" id="image" class="form-control mb-3" (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
+                          </div>
+          
+                          <!-- Display the currently selected or existing profile picture -->
+                          <div class="form-group">
+                            <div *ngIf="imageUrl; else noImage">
+                              <div>
+                                <img class="img-thumbnail" [src]="imageUrl" style="max-width: 100px" alt="image2">
+                              </div>
+                            </div>
+                            <ng-template #noImage>
+                              <p>No image selected</p>
+                            </ng-template>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group">
-                  <input
-                    [(ngModel)]="image3"
-                    type="text"
-                    name="image3"
-                    id="image3"
-                    class="form-control input-sm"
-                    placeholder="Image3"
-                    autocomplete="on"
-                    required
-                  />
+          
+              
+              <ng-template #noImagesFound>
+                <div class="col-xs-12">
+                  <p>No images found.</p>
                 </div>
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-6">
+              </ng-template>
+
+              <div class="container mt-5">
+      <div class="row">
+        <div class="card">
+          <div class="card-header">
+            <h2>Image: 3</h2>
+          </div>
+          <div class="card-body">
+            <div class="example-container">
+              <form novalidate enctype="multipart/form-data">
                 <div class="form-group">
-                  <input
-                    [(ngModel)]="image4"
-                    type="text"
-                    name="image4"
-                    id="image4"
-                    class="form-control input-sm"
-                    placeholder="Image4"
-                    autocomplete="on"
-                    required
-                  />
+                  <label for="image" class="form-label">Select Image</label>
+                  <input type="file" id="image" class="form-control mb-3" (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
                 </div>
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-6">
+
+                <!-- Display the currently selected or existing profile picture -->
                 <div class="form-group">
-                  <input
-                    [(ngModel)]="image5"
-                    type="text"
-                    name="image5"
-                    id="image5"
-                    class="form-control input-sm"
-                    placeholder="Image5"
-                    autocomplete="on"
-                    required
-                  />
+                  <div *ngIf="imageUrl; else noImage">
+                    <div>
+                      <img class="img-thumbnail" [src]="imageUrl" style="max-width: 100px" alt="image3">
+                    </div>
+                  </div>
+                  <ng-template #noImage>
+                    <p>No image selected</p>
+                  </ng-template>
                 </div>
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-6">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <ng-template #noImagesFound>
+      <div class="col-xs-12">
+        <p>No images found.</p>
+      </div>
+    </ng-template>
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="card">
+          <div class="card-header">
+            <h2>Image: 4</h2>
+          </div>
+          <div class="card-body">
+            <div class="example-container">
+              <form novalidate enctype="multipart/form-data">
                 <div class="form-group">
-                  <input
-                    [(ngModel)]="image6"
-                    type="text"
-                    name="image6"
-                    id="image6"
-                    class="form-control input-sm"
-                    placeholder="Image6"
-                    autocomplete="on"
-                    required
-                  />
+                  <label for="image" class="form-label">Select Image</label>
+                  <input type="file" id="image" class="form-control mb-3" (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
                 </div>
-              </div>
+
+                <!-- Display the currently selected or existing profile picture -->
+                <div class="form-group">
+                  <div *ngIf="imageUrl; else noImage">
+                    <div>
+                      <img class="img-thumbnail" [src]="imageUrl" style="max-width: 100px" alt="image4">
+                    </div>
+                  </div>
+                  <ng-template #noImage>
+                    <p>No image selected</p>
+                  </ng-template>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <ng-template #noImagesFound>
+      <div class="col-xs-12">
+        <p>No images found.</p>
+      </div>
+    </ng-template>
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="card">
+          <div class="card-header">
+            <h2>Image: 5</h2>
+          </div>
+          <div class="card-body">
+            <div class="example-container">
+              <form novalidate enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="image" class="form-label">Select Image</label>
+                  <input type="file" id="image" class="form-control mb-3" (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
+                </div>
+
+                <!-- Display the currently selected or existing profile picture -->
+                <div class="form-group">
+                  <div *ngIf="imageUrl; else noImage">
+                    <div>
+                      <img class="img-thumbnail" [src]="imageUrl" style="max-width: 100px" alt="image5">
+                    </div>
+                  </div>
+                  <ng-template #noImage>
+                    <p>No image selected</p>
+                  </ng-template>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <ng-template #noImagesFound>
+      <div class="col-xs-12">
+        <p>No images found.</p>
+      </div>
+    </ng-template>
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="card">
+          <div class="card-header">
+            <h2>Image: 6</h2>
+          </div>
+          <div class="card-body">
+            <div class="example-container">
+              <form novalidate enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="image" class="form-label">Select Image</label>
+                  <input type="file" id="image" class="form-control mb-3" (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
+                </div>
+
+                <!-- Display the currently selected or existing profile picture -->
+                <div class="form-group">
+                  <div *ngIf="imageUrl; else noImage">
+                    <div>
+                      <img class="img-thumbnail" [src]="imageUrl" style="max-width: 100px" alt="image6">
+                    </div>
+                  </div>
+                  <ng-template #noImage>
+                    <p>No image selected</p>
+                  </ng-template>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <ng-template #noImagesFound>
+      <div class="col-xs-12">
+        <p>No images found.</p>
+      </div>
+    </ng-template>
+
             </div>
 
             <button
-              type="button"
+              type="submit"
               class="btn btn-info btn-block"
               id="submit"
               (click)="submitCar()"
