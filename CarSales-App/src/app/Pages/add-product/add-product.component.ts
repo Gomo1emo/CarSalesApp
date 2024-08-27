@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ProductsService } from 'src/app/services/products/products.service';
 import Swal from 'sweetalert2';
 import { Image } from 'src/app/Interface/image';
-import  { ImageService } from 'src/app/services/image/image.service';
+import { ImageService } from 'src/app/services/image/image.service';
 
 @Component({
   selector: 'app-add-product',
@@ -16,16 +16,20 @@ export class AddProductComponent {
   image: File | null = null;
   imageMin: File | null = null;
   images: Image[] = [];
-  imageUrl: string | null = null;
+  imageUrl1: string | null = null;
+  imageUrl2: string | null = null;
+  imageUrl3: string | null = null;
+  imageUrl4: string | null = null;
+  imageUrl5: string | null = null;
+  imageUrl6: string | null = null;
 
-  
-  
+  carId: any;
 
   constructor(
     private fb: FormBuilder,
     private productService: ProductsService,
     private router: Router,
-    private imageService: ImageService,
+    private imageService: ImageService
   ) {}
 
   ngOnInit(): void {
@@ -58,6 +62,8 @@ export class AddProductComponent {
       image5: [''],
       image6: [''],
     });
+
+    
   }
 
   onSubmit(): void {
@@ -65,14 +71,20 @@ export class AddProductComponent {
       if (this.image) {
         this.imageService.upload(this.image).subscribe(
           (uploadResponse) => {
-            const imageUrl = uploadResponse.url;
-            this.carForm.patchValue({ image1: imageUrl });
-            this.carForm.patchValue({ image2: imageUrl });
-            this.carForm.patchValue({ image3: imageUrl });
-            this.carForm.patchValue({ image4: imageUrl });
-            this.carForm.patchValue({ image5: imageUrl });
-            this.carForm.patchValue({ image6: imageUrl });
-           
+            const imageUrl1 = uploadResponse.url1;
+            const imageUrl2 = uploadResponse.url2;
+            const imageUrl3 = uploadResponse.url3;
+            const imageUrl4 = uploadResponse.url4;
+            const imageUrl5 = uploadResponse.url5;
+            const imageUrl6 = uploadResponse.url6;
+            
+            this.carForm.patchValue({ image1: imageUrl1 });
+            this.carForm.patchValue({ image2: imageUrl2 });
+            this.carForm.patchValue({ image3: imageUrl3 });
+            this.carForm.patchValue({ image4: imageUrl4 });
+            this.carForm.patchValue({ image5: imageUrl5 });
+            this.carForm.patchValue({ image6: imageUrl6 });
+
             this.submitCar();
           },
           (err) => {
@@ -85,11 +97,9 @@ export class AddProductComponent {
                 confirmButton: 'custom-ok-button',
               },
             });
-          },
+          }
         );
-      } else {
-        this.submitCar();
-      }
+      } 
     }
   }
   submitCar(): void {
@@ -131,16 +141,40 @@ export class AddProductComponent {
     );
   }
 
-  onFileChange(event: any) {
-    this.image = event.target.files[0];
+  onFileChange(event: any, index: number): void {
+    const image = event.target.files[0];
     const fr = new FileReader();
+    
     fr.onload = (evento: any) => {
-      this.imageUrl = evento.target.result; // Bind image preview URL to imageUrl
+      switch (index) {
+        case 1:
+          this.imageUrl1 = evento.target.result;
+          break;
+        case 2:
+          this.imageUrl2 = evento.target.result;
+          break;
+        case 3:
+          this.imageUrl3 = evento.target.result;
+          break;
+        case 4:
+          this.imageUrl4 = evento.target.result;
+          break;
+        case 5:
+          this.imageUrl5 = evento.target.result;
+          break;
+        case 6:
+          this.imageUrl6 = evento.target.result;
+          break;
+        default:
+          break;
+      }
     };
-    if (this.image) {
-      fr.readAsDataURL(this.image);
+  
+    if (image) {
+      fr.readAsDataURL(image);
     }
   }
+  
 
   onUpload(): void {
     if (this.image) {
