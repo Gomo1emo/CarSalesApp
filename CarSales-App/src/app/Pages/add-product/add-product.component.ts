@@ -24,6 +24,12 @@ export class AddProductComponent {
   imageUrl6: string | null = null;
 
   carId: any;
+  image1: any;
+  image2: any;
+  image3: any;
+  image4: any;
+  image5: any;
+  image6: any;
 
   constructor(
     private fb: FormBuilder,
@@ -33,7 +39,7 @@ export class AddProductComponent {
   ) {}
 
   ngOnInit(): void {
-    this.fetchImages();
+    //this.fetchImages();
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.carForm = this.fb.group({
@@ -68,40 +74,56 @@ export class AddProductComponent {
 
   onSubmit(): void {
     if (this.carForm.valid) {
-      if (this.image) {
-        this.imageService.upload(this.image).subscribe(
-          (uploadResponse) => {
-            const imageUrl1 = uploadResponse.url1;
-            const imageUrl2 = uploadResponse.url2;
-            const imageUrl3 = uploadResponse.url3;
-            const imageUrl4 = uploadResponse.url4;
-            const imageUrl5 = uploadResponse.url5;
-            const imageUrl6 = uploadResponse.url6;
-            
-            this.carForm.patchValue({ image1: imageUrl1 });
-            this.carForm.patchValue({ image2: imageUrl2 });
-            this.carForm.patchValue({ image3: imageUrl3 });
-            this.carForm.patchValue({ image4: imageUrl4 });
-            this.carForm.patchValue({ image5: imageUrl5 });
-            this.carForm.patchValue({ image6: imageUrl6 });
-
-            this.submitCar();
-          },
-          (err) => {
-            this.reset();
-            Swal.fire({
-              icon: 'error',
-              title: 'Oops...',
-              text: 'An error occurred while uploading the image!',
-              customClass: {
-                confirmButton: 'custom-ok-button',
-              },
-            });
-          }
-        );
-      } 
+      const formData = new FormData();
+      formData.append('make', this.carForm.get('make')?.value);
+      formData.append('model', this.carForm.get('model')?.value);
+      formData.append('year', this.carForm.get('year')?.value);
+      formData.append('color', this.carForm.get('color')?.value);
+      formData.append('vin', this.carForm.get('vin')?.value);
+      formData.append('description', this.carForm.get('description')?.value);
+      formData.append('milage', this.carForm.get('milage')?.value);
+      formData.append('body', this.carForm.get('body')?.value);
+      formData.append('transmission', this.carForm.get('transmission')?.value);
+      formData.append('fuel', this.carForm.get('fuel')?.value);
+      formData.append('drive', this.carForm.get('drive')?.value);
+      formData.append('price', this.carForm.get('price')?.value);
+  
+      if (this.image1) formData.append('image1', this.image1);
+      if (this.image2) formData.append('image2', this.image2);
+      if (this.image3) formData.append('image3', this.image3);
+      if (this.image4) formData.append('image4', this.image4);
+      if (this.image5) formData.append('image5', this.image5);
+      if (this.image6) formData.append('image6', this.image6);
+  
+      this.onUpload();
+      this.productService.postProduct(formData).subscribe(
+        (response) => {
+          Swal.fire({
+            title: 'Good job!',
+            text: 'Car posted successfully!',
+            icon: 'success',
+            customClass: {
+              confirmButton: 'custom-ok-button',
+            },
+          });
+          setTimeout(() => {
+            this.router.navigate(['/']);
+          }, 2000);
+        },
+        (error) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            customClass: {
+              confirmButton: 'custom-ok-button',
+            },
+          });
+        }
+      );
     }
   }
+  
   submitCar(): void {
     const carData = this.carForm.value;
 
@@ -142,38 +164,60 @@ export class AddProductComponent {
   }
 
   onFileChange(event: any, index: number): void {
-    const image = event.target.files[0];
-    const fr = new FileReader();
-    
-    fr.onload = (evento: any) => {
+    const file = event.target.files[0];
+    if (file) {
       switch (index) {
         case 1:
-          this.imageUrl1 = evento.target.result;
+          this.image1 = file;
           break;
         case 2:
-          this.imageUrl2 = evento.target.result;
+          this.image2 = file;
           break;
         case 3:
-          this.imageUrl3 = evento.target.result;
+          this.image3 = file;
           break;
         case 4:
-          this.imageUrl4 = evento.target.result;
+          this.image4 = file;
           break;
         case 5:
-          this.imageUrl5 = evento.target.result;
+          this.image5 = file;
           break;
         case 6:
-          this.imageUrl6 = evento.target.result;
+          this.image6 = file;
           break;
         default:
           break;
       }
-    };
   
-    if (image) {
-      fr.readAsDataURL(image);
+      const fr = new FileReader();
+      fr.onload = (e: any) => {
+        switch (index) {
+          case 1:
+            this.imageUrl1 = e.target.result;
+            break;
+          case 2:
+            this.imageUrl2 = e.target.result;
+            break;
+          case 3:
+            this.imageUrl3 = e.target.result;
+            break;
+          case 4:
+            this.imageUrl4 = e.target.result;
+            break;
+          case 5:
+            this.imageUrl5 = e.target.result;
+            break;
+          case 6:
+            this.imageUrl6 = e.target.result;
+            break;
+          default:
+            break;
+        }
+      };
+      fr.readAsDataURL(file);
     }
   }
+  
   
 
   onUpload(): void {
