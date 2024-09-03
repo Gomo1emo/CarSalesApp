@@ -24,7 +24,7 @@ export class AddProductComponent {
   imageUrl6: string | null = null;
 
   carId: any;
-  image1: any;
+  image1: File | null = null;
   image2: any;
   image3: any;
   image4: any;
@@ -57,11 +57,12 @@ export class AddProductComponent {
       transmission: ['', Validators.required],
       fuel: ['', Validators.required],
       drive: ['', Validators.required],
+      tankSize: ['', Validators.required],
       price: [
         '',
         [Validators.required, Validators.pattern('^[0-9]+(.[0-9]{1,2})?$')],
       ],
-      image1: [''],
+      image1: ['', null],
       image2: [''],
       image3: [''],
       image4: [''],
@@ -69,6 +70,16 @@ export class AddProductComponent {
       image6: [''],
     });
 
+    // this.productService.getProduct().subscribe(
+    //   data => {
+    //       this.carId = data.id;
+    //       this.carForm.patchValue(data);
+    //       // Load the image if needed
+    // if (data.image1) {  // Update to profilePicture
+    //   this.imageUrl1 = data.image1; // Directly set imageUrl
+    // }
+    //   }
+    // );
     
   }
 
@@ -87,17 +98,19 @@ export class AddProductComponent {
       formData.append('fuel', this.carForm.get('fuel')?.value);
       formData.append('drive', this.carForm.get('drive')?.value);
       formData.append('price', this.carForm.get('price')?.value);
+      formData.append('tankSize', this.carForm.get('tankSize')?.value);
   
-      if (this.image1) formData.append('image1', this.image1);
+      if (this.image1) formData.append('image1', this.carForm.get('image1')?.value);
       if (this.image2) formData.append('image2', this.image2);
       if (this.image3) formData.append('image3', this.image3);
       if (this.image4) formData.append('image4', this.image4);
       if (this.image5) formData.append('image5', this.image5);
       if (this.image6) formData.append('image6', this.image6);
   
-      this.onUpload();
+      
       this.productService.postProduct(formData).subscribe(
         (response) => {
+          this.onUpload();
           Swal.fire({
             title: 'Good job!',
             text: 'Car posted successfully!',
@@ -126,6 +139,7 @@ export class AddProductComponent {
   
   submitCar(): void {
     const carData = this.carForm.value;
+
 
     this.productService.postProduct(carData).subscribe(
       (response) => {
