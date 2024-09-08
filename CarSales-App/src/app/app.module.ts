@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SideBarComponent } from './Components/side-bar/side-bar.component';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { HomeComponent } from './Pages/home/home.component';
@@ -20,7 +19,6 @@ import { BackComponent } from './Components/back/back.component';
 @NgModule({
   declarations: [
     AppComponent,
-    SideBarComponent,
     NavBarComponent,
     LoginComponent,
     HomeComponent,

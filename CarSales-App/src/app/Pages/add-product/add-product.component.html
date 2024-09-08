@@ -16,7 +16,7 @@
           <h3 class="panel-title">Sell Your Car<small></small></h3>
         </div>
         <div class="panel-body">
-          <form [formGroup]="carForm" (ngSubmit)="submitCar()">
+          <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
             <div class="row">
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
@@ -105,12 +105,12 @@
               <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group">
                   <input
-                    formControlName="milage"
-                    type="milage"
-                    name="milage"
+                    formControlName="millage"
+                    type="millage"
+                    name="millage"
                     id="password"
                     class="form-control input-sm"
-                    placeholder="Milage"
+                    placeholder="Millage"
                     autocomplete="on"
                     required
                   />
@@ -204,14 +204,14 @@
                 <div class="row">
                   <div class="card">
                     <div class="card-header">
-                      <h2>Image: 1</h2>
+                      <h2>Image:1</h2>
                     </div>
                     <div class="card-body">
                       <div class="example-container">
                         <form novalidate enctype="multipart/form-data">
                           <div class="form-group">
-                            <label for="image1" class="form-label">Select Profile Picture</label>
-                            <input type="file" id="image1" formControlName="image1" class="form-control mb-3" (change)="onFileChange($event,1)" accept="image/png, image/jpeg, image/jpg, image/gif, image/webp">
+                            <label for="image" class="form-label">Select Profile Picture</label>
+                            <input type="file" id="image" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
                           </div>
           
                           <!-- Display the currently selected or existing profile picture -->
@@ -239,231 +239,7 @@
                 </div>
               </ng-template>
 
-              <div class="container mt-5">
-                <div class="row">
-                  <div class="card">
-                    <div class="card-header">
-                      <h2>Image: 2</h2>
-                    </div>
-                    <div class="card-body">
-                      <div class="example-container">
-                        <form novalidate enctype="multipart/form-data">
-                          <div class="form-group">
-                            <label for="image" class="form-label"
-                              >Select image</label
-                            >
-                            <input
-                              type="file"
-                              id="image2"
-                              class="form-control mb-3"
-                              (change)="onFileChange($event, 2)"
-                              accept="image/png, image/jpeg, image/jpg, image/gif, image/webp"
-                            />
-                            <div *ngIf="imageUrl2; else noImage">
-                              <img
-                                class="img-thumbnail"
-                                [src]="imageUrl2"
-                                style="max-width: 100px"
-                                alt="image2"
-                              />
-                            </div>
-                            <ng-template #noImage>
-                              <p>No image selected</p>
-                            </ng-template>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <ng-template #noImagesFound>
-                <div class="col-xs-12">
-                  <p>No images found.</p>
-                </div>
-              </ng-template>
-
-              <div class="container mt-5">
-                <div class="row">
-                  <div class="card">
-                    <div class="card-header">
-                      <h2>Image: 3</h2>
-                    </div>
-                    <div class="card-body">
-                      <div class="example-container">
-                        <form novalidate enctype="multipart/form-data">
-                          <div class="form-group">
-                            <label for="image" class="form-label"
-                              >Select Image</label
-                            >
-                            <input
-                              type="file"
-                              id="image3"
-                              class="form-control mb-3"
-                              (change)="onFileChange($event, 3)"
-                              accept="image/png, image/jpeg, image/jpg, image/gif, image/webp"
-                            />
-                            <div *ngIf="imageUrl3; else noImage">
-                              <img
-                                class="img-thumbnail"
-                                [src]="imageUrl3"
-                                style="max-width: 100px"
-                                alt="image3"
-                              />
-                            </div>
-                            <ng-template #noImage>
-                              <p>No image selected</p>
-                            </ng-template>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <ng-template #noImagesFound>
-                <div class="col-xs-12">
-                  <p>No images found.</p>
-                </div>
-              </ng-template>
-
-              <div class="container mt-5">
-                <div class="row">
-                  <div class="card">
-                    <div class="card-header">
-                      <h2>Image: 4</h2>
-                    </div>
-                    <div class="card-body">
-                      <div class="example-container">
-                        <form novalidate enctype="multipart/form-data">
-                          <div class="form-group">
-                            <label for="image" class="form-label"
-                              >Select Image</label
-                            >
-                            <input
-                              type="file"
-                              id="image4"
-                              class="form-control mb-3"
-                              (change)="onFileChange($event, 4)"
-                              accept="image/png, image/jpeg, image/jpg, image/gif, image/webp"
-                            />
-                            <div *ngIf="imageUrl4; else noImage">
-                              <img
-                                class="img-thumbnail"
-                                [src]="imageUrl4"
-                                style="max-width: 100px"
-                                alt="image4"
-                              />
-                            </div>
-                            <ng-template #noImage>
-                              <p>No image selected</p>
-                            </ng-template>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <ng-template #noImagesFound>
-                <div class="col-xs-12">
-                  <p>No images found.</p>
-                </div>
-              </ng-template>
-
-              <div class="container mt-5">
-                <div class="row">
-                  <div class="card">
-                    <div class="card-header">
-                      <h2>Image: 5</h2>
-                    </div>
-                    <div class="card-body">
-                      <div class="example-container">
-                        <form novalidate enctype="multipart/form-data">
-                          <div class="form-group">
-                            <label for="image" class="form-label"
-                              >Select Image</label
-                            >
-                            <input
-                              type="file"
-                              id="image5"
-                              class="form-control mb-3"
-                              (change)="onFileChange($event, 5)"
-                              accept="image/png, image/jpeg, image/jpg, image/gif, image/webp"
-                            />
-                            <div *ngIf="imageUrl5; else noImage">
-                              <img
-                                class="img-thumbnail"
-                                [src]="imageUrl5"
-                                style="max-width: 100px"
-                                alt="image5"
-                              />
-                            </div>
-                            <ng-template #noImage>
-                              <p>No image selected</p>
-                            </ng-template>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <ng-template #noImagesFound>
-                <div class="col-xs-12">
-                  <p>No images found.</p>
-                </div>
-              </ng-template>
-
-              <div class="container mt-5">
-                <div class="row">
-                  <div class="card">
-                    <div class="card-header">
-                      <h2>Image: 6</h2>
-                    </div>
-                    <div class="card-body">
-                      <div class="example-container">
-                        <form novalidate enctype="multipart/form-data">
-                          <div class="form-group">
-                            <label for="image" class="form-label"
-                              >Select Image</label
-                            >
-                            <input
-                              type="file"
-                              id="image6"
-                              class="form-control mb-3"
-                              (change)="onFileChange($event, 6)"
-                              accept="image/png, image/jpeg, image/jpg, image/gif, image/webp"
-                            />
-                            <div *ngIf="imageUrl6; else noImage">
-                              <img
-                                class="img-thumbnail"
-                                [src]="imageUrl6"
-                                style="max-width: 100px"
-                                alt="image6"
-                              />
-                            </div>
-                            <ng-template #noImage>
-                              <p>No image selected</p>
-                            </ng-template>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <ng-template #noImagesFound>
-                <div class="col-xs-12">
-                  <p>No images found.</p>
-                </div>
-              </ng-template>
-            </div>
+              <!--  -->
 
             <button
               type="submit"
@@ -472,6 +248,7 @@
             >
               Submit
             </button>
+            </div>
           </form>
         </div>
       </div>

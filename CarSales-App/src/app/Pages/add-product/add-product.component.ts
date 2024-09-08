@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductsService } from 'src/app/services/products/products.service';
@@ -12,24 +12,15 @@ import { ImageService } from 'src/app/services/image/image.service';
   styleUrls: ['./add-product.component.scss'],
 })
 export class AddProductComponent {
+  @Output() carUpdated = new EventEmitter<void>();
   carForm!: FormGroup;
   image: File | null = null;
   imageMin: File | null = null;
   images: Image[] = [];
   imageUrl1: string | null = null;
-  imageUrl2: string | null = null;
-  imageUrl3: string | null = null;
-  imageUrl4: string | null = null;
-  imageUrl5: string | null = null;
-  imageUrl6: string | null = null;
 
   carId: any;
-  image1: File | null = null;
-  image2: any;
-  image3: any;
-  image4: any;
-  image5: any;
-  image6: any;
+ 
 
   constructor(
     private fb: FormBuilder,
@@ -39,20 +30,20 @@ export class AddProductComponent {
   ) {}
 
   ngOnInit(): void {
-    //this.fetchImages();
+    // this.fetchImages();
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.carForm = this.fb.group({
       make: ['', Validators.required],
       model: ['', Validators.required],
-      year: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]],
+      year: ['', Validators.required],
       color: ['', Validators.required],
       vin: [
         '',
-        [Validators.required, Validators.pattern('^[A-HJ-NPR-Z0-9]{17}$')],
+  Validators.required
       ],
       description: ['', Validators.required],
-      milage: ['', Validators.required],
+      millage: ['', Validators.required],
       body: ['', Validators.required],
       transmission: ['', Validators.required],
       fuel: ['', Validators.required],
@@ -60,14 +51,10 @@ export class AddProductComponent {
       tankSize: ['', Validators.required],
       price: [
         '',
-        [Validators.required, Validators.pattern('^[0-9]+(.[0-9]{1,2})?$')],
+        Validators.required
       ],
-      image1: ['', null],
-      image2: [''],
-      image3: [''],
-      image4: [''],
-      image5: [''],
-      image6: [''],
+      image: ['']
+     
     });
 
     // this.productService.getProduct().subscribe(
@@ -75,8 +62,8 @@ export class AddProductComponent {
     //       this.carId = data.id;
     //       this.carForm.patchValue(data);
     //       // Load the image if needed
-    // if (data.image1) {  // Update to profilePicture
-    //   this.imageUrl1 = data.image1; // Directly set imageUrl
+    // if (data.image) {  // Update to profilePicture
+    //   this.imageUrl1 = data.image; // Directly set imageUrl
     // }
     //   }
     // );
@@ -85,150 +72,68 @@ export class AddProductComponent {
 
   onSubmit(): void {
     if (this.carForm.valid) {
-      const formData = new FormData();
-      formData.append('make', this.carForm.get('make')?.value);
-      formData.append('model', this.carForm.get('model')?.value);
-      formData.append('year', this.carForm.get('year')?.value);
-      formData.append('color', this.carForm.get('color')?.value);
-      formData.append('vin', this.carForm.get('vin')?.value);
-      formData.append('description', this.carForm.get('description')?.value);
-      formData.append('milage', this.carForm.get('milage')?.value);
-      formData.append('body', this.carForm.get('body')?.value);
-      formData.append('transmission', this.carForm.get('transmission')?.value);
-      formData.append('fuel', this.carForm.get('fuel')?.value);
-      formData.append('drive', this.carForm.get('drive')?.value);
-      formData.append('price', this.carForm.get('price')?.value);
-      formData.append('tankSize', this.carForm.get('tankSize')?.value);
-  
-      if (this.image1) formData.append('image1', this.carForm.get('image1')?.value);
-      if (this.image2) formData.append('image2', this.image2);
-      if (this.image3) formData.append('image3', this.image3);
-      if (this.image4) formData.append('image4', this.image4);
-      if (this.image5) formData.append('image5', this.image5);
-      if (this.image6) formData.append('image6', this.image6);
-  
-      
-      this.productService.postProduct(formData).subscribe(
-        (response) => {
-          this.onUpload();
-          Swal.fire({
-            title: 'Good job!',
-            text: 'Car posted successfully!',
-            icon: 'success',
-            customClass: {
-              confirmButton: 'custom-ok-button',
-            },
-          });
-          setTimeout(() => {
-            this.router.navigate(['/']);
-          }, 2000);
-        },
-        (error) => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong!',
-            customClass: {
-              confirmButton: 'custom-ok-button',
-            },
-          });
-        }
-      );
+      if (this.image) {
+        this.imageService.upload(this.image).subscribe(
+          (uploadResponse) => {
+            const imageUrl1 = uploadResponse.url;
+            this.carForm.patchValue({ image: imageUrl1 });  // Bind image URL to profilePicture
+            this.submitCar();
+          },
+          (err) => {
+            this.reset();
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "An error occurred while uploading the image!",
+              customClass: {
+                confirmButton: 'custom-ok-button'
+              }
+            });
+          }
+        );
+      } else {
+        this.submitCar();
+      }
     }
   }
   
   submitCar(): void {
-    const carData = this.carForm.value;
-
-
-    this.productService.postProduct(carData).subscribe(
-      (response) => {
-        Swal.fire({
-          title: 'Good job!',
-          text: 'Car posted successfully!',
-          icon: 'success',
-          customClass: {
-            confirmButton: 'custom-ok-button',
-          },
-        });
-        setTimeout(() => {
+    
+      this.productService.postProduct(this.carForm.value).subscribe(
+        () => {
+          Swal.fire({
+            title: "Success!",
+            text: "Car posted successfully!",
+            icon: "success",
+            customClass: {
+              confirmButton: 'custom-ok-button'
+            }
+          });
+          // this.carUpdated.emit();
           this.router.navigate(['/']);
-        }, 2000);
-
-        // this.dialog.open(ModalComponent, {
-        //   data: { message: 'Bounty posted successfully!!!' }
-        // }).afterClosed().subscribe(() => {
-        //   localStorage.removeItem('bountyDraft');  // Clear draft after submission
-        // });
-      },
-      (error) => {
-        // this.dialog.open(ModalComponent, {
-        //   data: { message: 'Please fill in the correct information.' }
-        // });
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Something went wrong!',
-          customClass: {
-            confirmButton: 'custom-ok-button',
-          },
-        });
-      }
-    );
+        },
+        error => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "An error occurred while posting the car!",
+            customClass: {
+              confirmButton: 'custom-ok-button'
+            }
+          });
+        }
+      );
   }
 
-  onFileChange(event: any, index: number): void {
-    const file = event.target.files[0];
-    if (file) {
-      switch (index) {
-        case 1:
-          this.image1 = file;
-          break;
-        case 2:
-          this.image2 = file;
-          break;
-        case 3:
-          this.image3 = file;
-          break;
-        case 4:
-          this.image4 = file;
-          break;
-        case 5:
-          this.image5 = file;
-          break;
-        case 6:
-          this.image6 = file;
-          break;
-        default:
-          break;
-      }
-  
-      const fr = new FileReader();
-      fr.onload = (e: any) => {
-        switch (index) {
-          case 1:
-            this.imageUrl1 = e.target.result;
-            break;
-          case 2:
-            this.imageUrl2 = e.target.result;
-            break;
-          case 3:
-            this.imageUrl3 = e.target.result;
-            break;
-          case 4:
-            this.imageUrl4 = e.target.result;
-            break;
-          case 5:
-            this.imageUrl5 = e.target.result;
-            break;
-          case 6:
-            this.imageUrl6 = e.target.result;
-            break;
-          default:
-            break;
-        }
-      };
-      fr.readAsDataURL(file);
+
+  onFileChange(event: any) {
+    this.image = event.target.files[0];
+    const fr = new FileReader();
+    fr.onload = (evento: any) => {
+      this.imageUrl1 = evento.target.result; // Bind image preview URL to imageUrl
+    };
+    if (this.image) {
+      fr.readAsDataURL(this.image);
     }
   }
   
@@ -236,18 +141,17 @@ export class AddProductComponent {
 
   onUpload(): void {
     if (this.image) {
-      this.imageService.upload(this.image).subscribe(
-        (data) => {
-          this.fetchImages();
-        },
-        (err) => {
-          this.reset();
-          this.fetchImages();
-        }
-      );
+    this.imageService.upload(this.image).subscribe(
+    data => {
+    this.fetchImages();
+    },
+    err => {
+    this.reset();
+    this.fetchImages();
     }
-  }
-
+    );
+    }
+    }
   reset(): void {
     this.image = null;
     this.imageMin = null;

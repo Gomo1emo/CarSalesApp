@@ -1,5 +1,5 @@
 <app-nav-bar></app-nav-bar>
-<app-side-bar></app-side-bar>
+
 
 
 <div class="cont">
@@ -8,10 +8,10 @@
         <h1>Premium Muscle Cars for the Bold!</h1>
     </div>
     <h1>Available Cars</h1>
-    <div  class="products">
+    <div id="products"  class="products">
         
             <div *ngFor="let item of Cars" class="card" >
-                <img src="{{item.image1}}">
+                <img src="{{item.image}}">
                 <h3> {{item.year}} {{item.make}} {{item.model}} </h3>
                 <p class="desc">{{item.description}}</p>
                 <div class="inline">
