@@ -210,15 +210,170 @@
                       <div class="example-container">
                         <form novalidate enctype="multipart/form-data">
                           <div class="form-group">
-                            <label for="image" class="form-label">Select Profile Picture</label>
+                            <label for="image" class="form-label">Select Image1</label>
                             <input type="file" id="image" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
                           </div>
           
                           <!-- Display the currently selected or existing profile picture -->
                           <div class="form-group">
-                            <div *ngIf="imageUrl1; else noImage">
+                            <div *ngIf="imageUrl; else noImage">
                               <div>
-                                <img class="img-thumbnail" [src]="imageUrl1" style="max-width: 100px" alt="Profile Picture">
+                                <img class="img-thumbnail" [src]="imageUrl" style="max-width: 100px" alt="image1">
+                              </div>
+                            </div>
+                            <ng-template #noImage>
+                              <p>No image selected</p>
+                            </ng-template>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container mt-5">
+                <div class="row">
+                  <div class="card">
+                    <div class="card-header">
+                      <h2>Image:2</h2>
+                    </div>
+                    <div class="card-body">
+                      <div class="example-container">
+                        <form novalidate enctype="multipart/form-data">
+                          <div class="form-group">
+                            <label for="image" class="form-label">Select Image2</label>
+                            <input type="file" id="image" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
+                          </div>
+          
+                          <!-- Display the currently selected or existing profile picture -->
+                          <div class="form-group">
+                            <div *ngIf="imageUrl2; else noImage">
+                              <div>
+                                <img class="img-thumbnail" [src]="imageUrl2" style="max-width: 100px" alt="image2">
+                              </div>
+                            </div>
+                            <ng-template #noImage>
+                              <p>No image selected</p>
+                            </ng-template>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container mt-5">
+                <div class="row">
+                  <div class="card">
+                    <div class="card-header">
+                      <h2>Image:3</h2>
+                    </div>
+                    <div class="card-body">
+                      <div class="example-container">
+                        <form novalidate enctype="multipart/form-data">
+                          <div class="form-group">
+                            <label for="image" class="form-label">Select Image3</label>
+                            <input type="file" id="image" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
+                          </div>
+          
+                          <!-- Display the currently selected or existing profile picture -->
+                          <div class="form-group">
+                            <div *ngIf="imageUrl3; else noImage">
+                              <div>
+                                <img class="img-thumbnail" [src]="imageUrl3" style="max-width: 100px" alt="image3">
+                              </div>
+                            </div>
+                            <ng-template #noImage>
+                              <p>No image selected</p>
+                            </ng-template>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container mt-5">
+                <div class="row">
+                  <div class="card">
+                    <div class="card-header">
+                      <h2>Image:4</h2>
+                    </div>
+                    <div class="card-body">
+                      <div class="example-container">
+                        <form novalidate enctype="multipart/form-data">
+                          <div class="form-group">
+                            <label for="image" class="form-label">Select Image4</label>
+                            <input type="file" id="image" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
+                          </div>
+          
+                          <!-- Display the currently selected or existing profile picture -->
+                          <div class="form-group">
+                            <div *ngIf="imageUrl4; else noImage">
+                              <div>
+                                <img class="img-thumbnail" [src]="imageUrl4" style="max-width: 100px" alt="image4">
+                              </div>
+                            </div>
+                            <ng-template #noImage>
+                              <p>No image selected</p>
+                            </ng-template>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container mt-5">
+                <div class="row">
+                  <div class="card">
+                    <div class="card-header">
+                      <h2>Image:5</h2>
+                    </div>
+                    <div class="card-body">
+                      <div class="example-container">
+                        <form novalidate enctype="multipart/form-data">
+                          <div class="form-group">
+                            <label for="image" class="form-label">Select Image5</label>
+                            <input type="file" id="image" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
+                          </div>
+          
+                          <!-- Display the currently selected or existing profile picture -->
+                          <div class="form-group">
+                            <div *ngIf="imageUrl5; else noImage">
+                              <div>
+                                <img class="img-thumbnail" [src]="imageUrl5" style="max-width: 100px" alt="image5">
+                              </div>
+                            </div>
+                            <ng-template #noImage>
+                              <p>No image selected</p>
+                            </ng-template>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container mt-5">
+                <div class="row">
+                  <div class="card">
+                    <div class="card-header">
+                      <h2>Image:6</h2>
+                    </div>
+                    <div class="card-body">
+                      <div class="example-container">
+                        <form novalidate enctype="multipart/form-data">
+                          <div class="form-group">
+                            <label for="image" class="form-label">Select Image6</label>
+                            <input type="file" id="image" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
+                          </div>
+          
+                          <!-- Display the currently selected or existing profile picture -->
+                          <div class="form-group">
+                            <div *ngIf="imageUrl6; else noImage">
+                              <div>
+                                <img class="img-thumbnail" [src]="imageUrl6" style="max-width: 100px" alt="image6">
                               </div>
                             </div>
                             <ng-template #noImage>
