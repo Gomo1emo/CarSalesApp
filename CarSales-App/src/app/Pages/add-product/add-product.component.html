@@ -211,14 +211,14 @@
                         <form novalidate enctype="multipart/form-data">
                           <div class="form-group">
                             <label for="image" class="form-label">Select Image1</label>
-                            <input type="file" id="image" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
+                            <input type="file" id="image" formControlName="image1" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
                           </div>
           
                           <!-- Display the currently selected or existing profile picture -->
                           <div class="form-group">
-                            <div *ngIf="imageUrl; else noImage">
+                            <div *ngIf="imageUrls; else noImage">
                               <div>
-                                <img class="img-thumbnail" [src]="imageUrl" style="max-width: 100px" alt="image1">
+                                <img class="img-thumbnail" [src]="imageUrls" style="max-width: 100px" alt="image1">
                               </div>
                             </div>
                             <ng-template #noImage>
@@ -242,14 +242,14 @@
                         <form novalidate enctype="multipart/form-data">
                           <div class="form-group">
                             <label for="image" class="form-label">Select Image2</label>
-                            <input type="file" id="image" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
+                            <input type="file" id="image" formControlName="image2" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
                           </div>
           
                           <!-- Display the currently selected or existing profile picture -->
                           <div class="form-group">
-                            <div *ngIf="imageUrl2; else noImage">
+                            <div *ngIf="imageUrls; else noImage">
                               <div>
-                                <img class="img-thumbnail" [src]="imageUrl2" style="max-width: 100px" alt="image2">
+                                <img class="img-thumbnail" [src]="imageUrls" style="max-width: 100px" alt="image2">
                               </div>
                             </div>
                             <ng-template #noImage>
@@ -273,14 +273,14 @@
                         <form novalidate enctype="multipart/form-data">
                           <div class="form-group">
                             <label for="image" class="form-label">Select Image3</label>
-                            <input type="file" id="image" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
+                            <input type="file" id="image" formControlName="image3" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
                           </div>
           
                           <!-- Display the currently selected or existing profile picture -->
                           <div class="form-group">
-                            <div *ngIf="imageUrl3; else noImage">
+                            <div *ngIf="imageUrls; else noImage">
                               <div>
-                                <img class="img-thumbnail" [src]="imageUrl3" style="max-width: 100px" alt="image3">
+                                <img class="img-thumbnail" [src]="imageUrls" style="max-width: 100px" alt="image3">
                               </div>
                             </div>
                             <ng-template #noImage>
@@ -304,14 +304,14 @@
                         <form novalidate enctype="multipart/form-data">
                           <div class="form-group">
                             <label for="image" class="form-label">Select Image4</label>
-                            <input type="file" id="image" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
+                            <input type="file" id="image" formControlName="image4" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
                           </div>
           
                           <!-- Display the currently selected or existing profile picture -->
                           <div class="form-group">
-                            <div *ngIf="imageUrl4; else noImage">
+                            <div *ngIf="imageUrls; else noImage">
                               <div>
-                                <img class="img-thumbnail" [src]="imageUrl4" style="max-width: 100px" alt="image4">
+                                <img class="img-thumbnail" [src]="imageUrls" style="max-width: 100px" alt="image4">
                               </div>
                             </div>
                             <ng-template #noImage>
@@ -335,14 +335,14 @@
                         <form novalidate enctype="multipart/form-data">
                           <div class="form-group">
                             <label for="image" class="form-label">Select Image5</label>
-                            <input type="file" id="image" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
+                            <input type="file" id="image" formControlName="image5" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
                           </div>
           
                           <!-- Display the currently selected or existing profile picture -->
                           <div class="form-group">
-                            <div *ngIf="imageUrl5; else noImage">
+                            <div *ngIf="imageUrls; else noImage">
                               <div>
-                                <img class="img-thumbnail" [src]="imageUrl5" style="max-width: 100px" alt="image5">
+                                <img class="img-thumbnail" [src]="imageUrls" style="max-width: 100px" alt="image5">
                               </div>
                             </div>
                             <ng-template #noImage>
@@ -366,14 +366,14 @@
                         <form novalidate enctype="multipart/form-data">
                           <div class="form-group">
                             <label for="image" class="form-label">Select Image6</label>
-                            <input type="file" id="image" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
+                            <input type="file" id="image" formControlName="image6" name="image" class="form-control mb-3"  (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg, image/gif">
                           </div>
           
                           <!-- Display the currently selected or existing profile picture -->
                           <div class="form-group">
-                            <div *ngIf="imageUrl6; else noImage">
+                            <div *ngIf="imageUrls; else noImage">
                               <div>
-                                <img class="img-thumbnail" [src]="imageUrl6" style="max-width: 100px" alt="image6">
+                                <img class="img-thumbnail" [src]="imageUrls" style="max-width: 100px" alt="image6">
                               </div>
                             </div>
                             <ng-template #noImage>

@@ -24,6 +24,8 @@ export class ShowcaseComponent implements OnInit {  // Implement OnInit
         this.carId = CarId;
         this.productService.getProduct(CarId).subscribe((response) => {
           this.car = response;
+          console.log(this.car)
+          console.log(this.car.imageUrls)
         });
       }
     });
