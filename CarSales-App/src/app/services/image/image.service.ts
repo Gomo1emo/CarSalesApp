@@ -8,7 +8,7 @@ import { Image } from 'src/app/Interface/image';
 })
 export class ImageService {
 
-  imageURL = 'http://localhost:8080/cloudinary/';
+  imageURL = 'http://localhost:8082/cloudinary/';
 
 constructor(private httpClient: HttpClient) { }
 

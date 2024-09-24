@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class BookingsServiceService {
 
-  private apiUrl = 'http://localhost:8080/api/v1/testDrive';
+  private apiUrl = 'http://localhost:8082/api/v1/testDrive';
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
