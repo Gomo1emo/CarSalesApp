@@ -85,17 +85,17 @@ export class AddProductComponent {
         this.imageService.upload(this.image).subscribe(
           (uploadResponse) => {
             const imageUrl = uploadResponse.url;
-            const imageUrl2 = uploadResponse.url2;
-            const imageUrl3 = uploadResponse.url3;
-            const imageUrl4 = uploadResponse.url4;
-            const imageUrl5 = uploadResponse.url5;
-            const imageUrl6 = uploadResponse.url6;
-            this.carForm.patchValue({ image1: imageUrl });  // Bind image URL to profilePicture
-            this.carForm.patchValue({ image2: imageUrl2 });  // Bind image URL to profilePicture
-            this.carForm.patchValue({ image3: imageUrl3});  // Bind image URL to profilePicture
-            this.carForm.patchValue({ image4: imageUrl4 });  // Bind image URL to profilePicture
-            this.carForm.patchValue({ image5: imageUrl5 });  // Bind image URL to profilePicture
-            this.carForm.patchValue({ image6: imageUrl6 });  // Bind image URL to profilePicture
+            const imageUrl2 = uploadResponse.url;
+            const imageUrl3 = uploadResponse.url;
+            const imageUrl4 = uploadResponse.url;
+            const imageUrl5 = uploadResponse.url;
+            const imageUrl6 = uploadResponse.url;
+            this.carForm.patchValue({ image1: imageUrl });  // Bind image URL to image1
+            this.carForm.patchValue({ image2: imageUrl2 });  // Bind image URL to image2
+            this.carForm.patchValue({ image3: imageUrl3 });  // Bind image URL to image3
+            this.carForm.patchValue({ image4: imageUrl4 });  // Bind image URL to image4
+            this.carForm.patchValue({ image5: imageUrl5 });  // Bind image URL to image5
+            this.carForm.patchValue({ image6: imageUrl6 });  // Bind image URL to image6
             this.submitCar();
           },
           (err) => {
