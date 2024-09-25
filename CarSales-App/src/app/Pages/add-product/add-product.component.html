@@ -218,7 +218,7 @@
                           <div class="form-group">
                             <div *ngIf="imageUrls; else noImage">
                               <div>
-                                <img class="img-thumbnail" [src]="imageUrls" style="max-width: 100px" alt="image1">
+                                <img class="img-thumbnail" [src]="imageUrls[0]" style="max-width: 100px" alt="image1">
                               </div>
                             </div>
                             <ng-template #noImage>
@@ -249,7 +249,7 @@
                           <div class="form-group">
                             <div *ngIf="imageUrls; else noImage">
                               <div>
-                                <img class="img-thumbnail" [src]="imageUrls" style="max-width: 100px" alt="image2">
+                                <img class="img-thumbnail" [src]="imageUrls[1]" style="max-width: 100px" alt="image2">
                               </div>
                             </div>
                             <ng-template #noImage>
@@ -280,7 +280,7 @@
                           <div class="form-group">
                             <div *ngIf="imageUrls; else noImage">
                               <div>
-                                <img class="img-thumbnail" [src]="imageUrls" style="max-width: 100px" alt="image3">
+                                <img class="img-thumbnail" [src]="imageUrls[2]" style="max-width: 100px" alt="image3">
                               </div>
                             </div>
                             <ng-template #noImage>
@@ -311,7 +311,7 @@
                           <div class="form-group">
                             <div *ngIf="imageUrls; else noImage">
                               <div>
-                                <img class="img-thumbnail" [src]="imageUrls" style="max-width: 100px" alt="image4">
+                                <img class="img-thumbnail" [src]="imageUrls[3]" style="max-width: 100px" alt="image4">
                               </div>
                             </div>
                             <ng-template #noImage>

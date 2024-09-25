@@ -17,6 +17,13 @@ export class AddProductComponent {
   images: File[] = []; // Changed to File[]
   imageUrls: (string | null)[] = Array(6).fill(null); // Allow null values
 
+  image1: File | null = null;
+  image2: File | null = null;
+  image3: File | null = null;
+  image4: File | null = null;
+  image5: File | null = null;
+  image6: File | null = null;
+
   constructor(
     private fb: FormBuilder,
     private productService: ProductsService,
@@ -92,15 +99,15 @@ export class AddProductComponent {
       fr.onload = (evento: any) => {
         if (index < 6) {
           this.imageUrls[index] = evento.target.result; // Store URL in array
-          this.carForm.patchValue({ [`image${index + 1}`]: this.imageUrls[index + 1] }); // Bind image URL to form control
+          this.carForm.patchValue({ [`image${index + 1}`]: this.imageUrls[index] }); // Bind image URL to form control (corrected the index)
         }
       };
       fr.readAsDataURL(image);
     });
 
     this.onUpload(); // Trigger upload after selecting files
-     // Trigger upload after selecting files
-  }
+}
+
 
   onUpload(): void {
     if (this.images.length > 0) {
